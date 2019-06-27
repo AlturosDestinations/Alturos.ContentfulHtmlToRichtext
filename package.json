@@ -1,6 +1,6 @@
 {
   "name": "contentful-html-to-richtext",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple package to convert from HTML to Contentful Rich Text",
   "main": "index.js",
   "dependencies": {
@@ -18,5 +18,8 @@
     "cheerio"
   ],
   "author": "Alturos Destinations GmbH",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/AlturosDestinations/Alturos.ContentfulHtmlToRichtext.git"
+  }
 }

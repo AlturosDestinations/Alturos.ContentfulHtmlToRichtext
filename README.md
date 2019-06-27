@@ -1,12 +1,10 @@
 # HTML to Contentful RichText
 
-----
 ## Installation
 
 ```
 npm i contentful-html-to-richtext -s
 ```
----
 ## Usage
 
 This package exposes one simple method called `generateRichtText`:
