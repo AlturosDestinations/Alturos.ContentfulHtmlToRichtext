@@ -1,6 +1,6 @@
-[![NPM version](https://img.shields.io/npm/v/contentful-html-to-richtext.svg?style=flat)](https://npmjs.org/package/contentful-html-to-richtext)
-
 # HTML to Contentful RichText
+
+[![NPM version](https://img.shields.io/npm/v/contentful-html-to-richtext.svg?style=flat)](https://npmjs.org/package/contentful-html-to-richtext)
 
 ## Installation
 
