@@ -1,0 +1,345 @@
+{
+  "data": {},
+  "content": [
+    {
+      "data": {},
+      "content": [
+        {
+          "data": {},
+          "marks": [],
+          "value": "<p><b><font color=red>Die Saisoneröffnung der Schynige Platte-Bahn musste wegen der grossen Schneemassen auf Samstag, 8. Juni 2019 verschoben werden. Vielen Dank für das Verständnis.</font></b></p>\r\n<p>Wer die Schynige Platte mit der Zahnradbahn besucht, fühlt sich wie in der «Belle Epoque». Die Nostalgiebahn legt die sieben Kilometer lange Strecke in 50 Minuten zurück. Holzbänke in den Zugwagen, Rollmaterial aus dem 19. Jahrhundert und die historischen Uniformen der Zugbegleiter erinnern an vergangene Zeiten. Während der Fahrt und auf dem Berg geniessen die Besucher eine wunderschöne Sicht auf Eiger, Mönch und Jungfrau. Entdecken Sie den botanischen Alpengarten mit rund 600 verschiedenen Pflanzenarten, spazieren Sie entlang des Naturkinos mit der Ruheoase und Wohlfühlbänke mit Panoramablick und lassen Sie sich im Bergrestaurant kulinarisch verwöhnen.</p>\r\n<p>Bergbahntickets sind persönlich, nicht erstatt- & übertragbar und nur am gewählten Tag gültig. Nach erfolgreicher Buchung, können Sie Ihr Bahnticket jederzeit als PDF aus Ihrem Benutzerkonto ausdrucken oder als Mobileticket Ihrer Wallet hinzufügen.</p>",
+          "nodeType": "text"
+        }
+      ],
+      "nodeType": "paragraph"
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "asd",
+          "marks": [
+            {
+              "type": "underline"
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "cdef",
+          "marks": [
+            {
+              "type": "underline"
+            },
+            {
+              "type": "italic"
+            },
+            {
+              "type": "bold"
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "heading-1",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "Im h1 and no more",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "heading-2",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "Im h2",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "I am code",
+          "marks": [
+            {
+              "type": "code"
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "heading-1",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "I am",
+          "marks": [],
+          "data": {}
+        },
+        {
+          "nodeType": "hyperlink",
+          "content": [
+            {
+              "nodeType": "text",
+              "value": "linked",
+              "marks": [],
+              "data": {}
+            }
+          ],
+          "data": {
+            "uri": "mailto:test"
+          }
+        },
+        {
+          "nodeType": "text",
+          "value": "",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "I am ordered:",
+          "marks": [
+            {
+              "type": "code"
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "ordered-list",
+      "content": [
+        {
+          "nodeType": "list-item",
+          "data": {},
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "eins",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ]
+        },
+        {
+          "nodeType": "list-item",
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "zwei",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ],
+          "data": {}
+        },
+        {
+          "nodeType": "list-item",
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "drei",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "Oder auch nicht?",
+          "marks": [
+            {
+              "type": "code"
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "unordered-list",
+      "content": [
+        {
+          "nodeType": "list-item",
+          "data": {},
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "chaos!",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ]
+        },
+        {
+          "nodeType": "list-item",
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "chaos!",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ],
+          "data": {}
+        },
+        {
+          "nodeType": "list-item",
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Chaos!",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "data": {}
+                }
+              ],
+              "data": {}
+            }
+          ],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "hr",
+      "content": [],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "(catch you after the break)",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    },
+    {
+      "nodeType": "paragraph",
+      "content": [
+        {
+          "nodeType": "text",
+          "value": "",
+          "marks": [],
+          "data": {}
+        }
+      ],
+      "data": {}
+    }
+  ],
+  "nodeType": "document"
+}

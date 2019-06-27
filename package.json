@@ -1,0 +1,22 @@
+{
+  "name": "contentful-html-to-richtext",
+  "version": "0.1.1",
+  "description": "A simple package to convert from HTML to Contentful Rich Text",
+  "main": "index.js",
+  "dependencies": {
+    "@types/cheerio": "^0.22.11",
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "contentful",
+    "html",
+    "parser",
+    "cheerio"
+  ],
+  "author": "Alturos Destinations GmbH",
+  "license": "MIT"
+}
