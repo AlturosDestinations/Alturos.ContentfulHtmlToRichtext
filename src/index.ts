@@ -81,12 +81,13 @@ function isNodeType(type: AllNodeTypes): boolean {
 function generateHyperlink(
   root: RootContentfulNode,
   node: CheerioElement,
+  parentNode: ContentContentfulNode,
   parentMarks?: ContentfulMark[]
 ) {
   let _nextMark = parentMarks ? [...parentMarks] : [];
   let httpNode = new ContentContentfulNode("hyperlink");
   httpNode.content.push(
-    ...generateDataForSubnodes(root, node.children, _nextMark)
+    ...generateDataForSubnodes(root, node.children, parentNode, _nextMark)
   );
   httpNode.data = new UriData(node.attribs["href"]);
   return httpNode;
@@ -112,6 +113,7 @@ function getMarksFromNode(node: CheerioElement): ContentfulMark[] {
 function generateDataForSubnodes(
   root: RootContentfulNode,
   nodes: CheerioElement[],
+  parentNode: ContentContentfulNode,
   parentMarks?: ContentfulMark[]
 ): BaseContentfulNode[] {
   let leafNodes: BaseContentfulNode[] = [];
@@ -119,10 +121,10 @@ function generateDataForSubnodes(
     let _nextMark = parentMarks ? [...parentMarks] : [];
     let type = getNodeType(node.tagName);
     _nextMark.push(...getMarksFromNode(node));
-    if (type == "text") {
+    if (type == "text" && !isListType(parentNode.nodeType)) {
       if (node.tagName) {
         leafNodes.push(
-          ...generateDataForSubnodes(root, node.children, _nextMark)
+          ...generateDataForSubnodes(root, node.children, parentNode, _nextMark)
         );
       } else {
         let leafNode = new LeafContentfulNode(node.data || "");
@@ -130,7 +132,14 @@ function generateDataForSubnodes(
         leafNodes.push(leafNode);
       }
     } else if (type == "hyperlink") {
-      leafNodes.push(generateHyperlink(root, node, _nextMark));
+      leafNodes.push(generateHyperlink(root, node, parentNode, _nextMark));
+    } else if (type == "list-item") {
+      let listItem = new ContentContentfulNode("list-item");
+      node.children.forEach(node => {
+        generateDataForNode(listItem, node);
+      });
+
+      leafNodes.push(listItem);
     } else {
       generateDataForNode(root, node);
     }
@@ -142,20 +151,26 @@ function generateDataForNode(root: RootContentfulNode, node: CheerioElement) {
   let cfNode = null;
   if (isHeaderType(nodeType) || nodeType == "paragraph") {
     cfNode = new ContentContentfulNode(nodeType as HeaderTypes);
-    cfNode.content.push(...generateDataForSubnodes(root, node.children));
+    cfNode.content.push(
+      ...generateDataForSubnodes(root, node.children, cfNode)
+    );
   } else if (isListType(nodeType)) {
     cfNode = new ContentContentfulNode(nodeType as HeaderTypes);
-    cfNode.content.push(...generateDataForSubnodes(root, node.children));
+    cfNode.content.push(
+      ...generateDataForSubnodes(root, node.children, cfNode)
+    );
   } else if (nodeType == "text") {
     cfNode = new ContentContentfulNode("paragraph");
     if (!node.tagName) {
       cfNode.content.push(new LeafContentfulNode(node.data || ""));
     } else {
-      cfNode.content.push(...generateDataForSubnodes(root, node.children));
+      cfNode.content.push(
+        ...generateDataForSubnodes(root, node.children, cfNode)
+      );
     }
   } else if (nodeType == "hyperlink") {
     cfNode = new ContentContentfulNode("paragraph");
-    cfNode.content.push(generateHyperlink(root, node));
+    cfNode.content.push(generateHyperlink(root, node, cfNode));
   }
 
   if (cfNode) root.content.push(cfNode);

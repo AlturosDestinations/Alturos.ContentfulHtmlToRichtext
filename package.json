@@ -1,6 +1,6 @@
 {
   "name": "contentful-html-to-richtext",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple package to convert from HTML to Contentful Rich Text",
   "main": "index.js",
   "dependencies": {
