@@ -230,7 +230,7 @@ export type MarkTypes = "underline" | "bold" | "italic" | "code";
 export class ContentfulMark {
   constructor(public type: MarkTypes = "bold") {}
 }
-export function generateRichtText(html: string) {
+export function generateRichText(html: string) {
   let document = cheerio.parseHTML(html);
   let rich = new RootContentfulNode();
   document.forEach(doc => {
