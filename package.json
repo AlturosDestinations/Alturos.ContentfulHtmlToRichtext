@@ -4,10 +4,14 @@
   "description": "A simple package to convert from HTML to Contentful Rich Text",
   "main": "index.js",
   "dependencies": {
-    "@types/cheerio": "^0.22.11",
+    "@types/cheerio": "^0.22.12",
     "cheerio": "^1.0.0-rc.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3",
+    "typescript-tslint-plugin": "^0.5.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

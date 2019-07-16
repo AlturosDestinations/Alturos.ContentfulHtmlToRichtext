@@ -82,18 +82,18 @@ function generateHyperlink(
   root: RootContentfulNode,
   node: CheerioElement,
   parentNode: ContentContentfulNode,
-  parentMarks?: ContentfulMark[]
+  parentMarks?: ContentfulMark[],
 ) {
-  let _nextMark = parentMarks ? [...parentMarks] : [];
-  let httpNode = new ContentContentfulNode("hyperlink");
+  const nextMark = parentMarks ? [...parentMarks] : [];
+  const httpNode = new ContentContentfulNode("hyperlink");
   httpNode.content.push(
-    ...generateDataForSubnodes(root, node.children, parentNode, _nextMark)
+    ...generateDataForSubnodes(root, node.children, parentNode, nextMark),
   );
-  httpNode.data = new UriData(node.attribs["href"]);
+  httpNode.data = new UriData(node.attribs.href);
   return httpNode;
 }
 function getMarksFromNode(node: CheerioElement): ContentfulMark[] {
-  let marks: ContentfulMark[] = [];
+  const marks: ContentfulMark[] = [];
   switch (node.tagName) {
     case "b":
       marks.push(new ContentfulMark("bold"));
@@ -114,29 +114,29 @@ function generateDataForSubnodes(
   root: RootContentfulNode,
   nodes: CheerioElement[],
   parentNode: ContentContentfulNode,
-  parentMarks?: ContentfulMark[]
+  parentMarks?: ContentfulMark[],
 ): BaseContentfulNode[] {
-  let leafNodes: BaseContentfulNode[] = [];
-  nodes.forEach(node => {
-    let _nextMark = parentMarks ? [...parentMarks] : [];
-    let type = getNodeType(node.tagName);
-    _nextMark.push(...getMarksFromNode(node));
-    if (type == "text" && !isListType(parentNode.nodeType)) {
+  const leafNodes: BaseContentfulNode[] = [];
+  nodes.forEach((node) => {
+    const nextMark = parentMarks ? [...parentMarks] : [];
+    const type = getNodeType(node.tagName);
+    nextMark.push(...getMarksFromNode(node));
+    if (type === "text" && !isListType(parentNode.nodeType)) {
       if (node.tagName) {
         leafNodes.push(
-          ...generateDataForSubnodes(root, node.children, parentNode, _nextMark)
+          ...generateDataForSubnodes(root, node.children, parentNode, nextMark),
         );
       } else {
-        let leafNode = new LeafContentfulNode(node.data || "");
-        leafNode.marks = _nextMark;
+        const leafNode = new LeafContentfulNode(node.data || "");
+        leafNode.marks = nextMark;
         leafNodes.push(leafNode);
       }
-    } else if (type == "hyperlink") {
-      leafNodes.push(generateHyperlink(root, node, parentNode, _nextMark));
-    } else if (type == "list-item") {
-      let listItem = new ContentContentfulNode("list-item");
-      node.children.forEach(node => {
-        generateDataForNode(listItem, node);
+    } else if (type === "hyperlink") {
+      leafNodes.push(generateHyperlink(root, node, parentNode, nextMark));
+    } else if (type === "list-item") {
+      const listItem = new ContentContentfulNode("list-item");
+      node.children.forEach((nodeChild) => {
+        generateDataForNode(listItem, nodeChild);
       });
 
       leafNodes.push(listItem);
@@ -147,37 +147,37 @@ function generateDataForSubnodes(
   return leafNodes;
 }
 function generateDataForNode(root: RootContentfulNode, node: CheerioElement) {
-  let nodeType: AllNodeTypes = getNodeType(node.tagName);
+  const nodeType: AllNodeTypes = getNodeType(node.tagName);
   let cfNode = null;
-  if (isHeaderType(nodeType) || nodeType == "paragraph") {
+  if (isHeaderType(nodeType) || nodeType === "paragraph") {
     cfNode = new ContentContentfulNode(nodeType as HeaderTypes);
     cfNode.content.push(
-      ...generateDataForSubnodes(root, node.children, cfNode)
+      ...generateDataForSubnodes(root, node.children, cfNode),
     );
   } else if (isListType(nodeType)) {
     cfNode = new ContentContentfulNode(nodeType as HeaderTypes);
     cfNode.content.push(
-      ...generateDataForSubnodes(root, node.children, cfNode)
+      ...generateDataForSubnodes(root, node.children, cfNode),
     );
-  } else if (nodeType == "text") {
+  } else if (nodeType === "text") {
     cfNode = new ContentContentfulNode("paragraph");
     if (!node.tagName) {
       cfNode.content.push(new LeafContentfulNode(node.data || ""));
     } else {
       cfNode.content.push(
-        ...generateDataForSubnodes(root, node.children, cfNode)
+        ...generateDataForSubnodes(root, node.children, cfNode),
       );
     }
-  } else if (nodeType == "hyperlink") {
+  } else if (nodeType === "hyperlink") {
     cfNode = new ContentContentfulNode("paragraph");
     cfNode.content.push(generateHyperlink(root, node, cfNode));
   }
 
-  if (cfNode) root.content.push(cfNode);
+  if (cfNode) { root.content.push(cfNode); }
   return cfNode;
 }
 export type RootType = "document";
-export type MainTypes = "paragraph" | HeaderTypes | ListTypes | "hr"; //spacer
+export type MainTypes = "paragraph" | HeaderTypes | ListTypes | "hr"; // spacer
 export type HeaderTypes =
   | "heading-1"
   | "heading-2"
@@ -216,7 +216,7 @@ export class LeafContentfulNode extends BaseContentfulNode {
   constructor(public value: string, public nodeType: LeafType = "text") {
     super(nodeType);
   }
-  addMark(mark: MarkTypes): void {
+  public addMark(mark: MarkTypes): void {
     this.marks.push(new ContentfulMark(mark));
   }
 }
@@ -231,9 +231,9 @@ export class ContentfulMark {
   constructor(public type: MarkTypes = "bold") {}
 }
 export function generateRichText(html: string) {
-  let document = cheerio.parseHTML(html);
-  let rich = new RootContentfulNode();
-  document.forEach(doc => {
+  const document = cheerio.parseHTML(html);
+  const rich = new RootContentfulNode();
+  document.forEach((doc) => {
     generateDataForNode(rich, (doc as unknown) as CheerioElement);
   });
   return rich;
