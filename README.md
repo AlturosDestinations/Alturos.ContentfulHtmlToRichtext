@@ -12,7 +12,7 @@ npm i contentful-html-to-richtext -s
 This package exposes one simple method called `generateRichText`:
 
 ```javascipt
-var parser = require("contentful-html-to-richtext");
+const parser = require("contentful-html-to-richtext");
 
 let rt = parser.generateRichText(
   `<a href='mailto:test'>We link!</a>

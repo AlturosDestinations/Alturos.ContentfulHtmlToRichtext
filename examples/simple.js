@@ -1,4 +1,4 @@
-var parser = require("../");
+const parser = require("../");
 
 let rt = parser.generateRichText(
   `<a href='mailto:test'>We link!</a>
